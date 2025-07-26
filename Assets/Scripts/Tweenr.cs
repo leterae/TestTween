@@ -7,6 +7,7 @@ public class Tweenr : MonoBehaviour
     
     public bool isKill;
     public bool isComplete;
+    public Mytween.EaseType easeType = Mytween.EaseType.Linear;
     
     // 记录Tweener类型
     public string name;
@@ -39,5 +40,10 @@ public class Tweenr : MonoBehaviour
     {
         this.isComplete = isComplete;
         isKill = true;
+    }
+
+    public void SetEase(Mytween.EaseType type)
+    {
+        easeType = type;
     }
 }

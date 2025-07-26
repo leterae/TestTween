@@ -8,6 +8,7 @@ public class DoMoveTest : MonoBehaviour
     public GameObject target;
     public Button moveButton;
     public int moveDistance;
+    public int duration = 2;
     
     void Start()
     {
@@ -19,6 +20,6 @@ public class DoMoveTest : MonoBehaviour
     void OnMoveButtonClick()
     {
         Vector3 endPos = target.transform.position + new Vector3(moveDistance, 0, 0);
-        target.transform.DoMove(endPos, 10);
+        target.transform.DoMove(endPos, duration);
     }
 }

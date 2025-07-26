@@ -3,13 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DoScaleTest : MonoBehaviour
+public class ChangeScaleEaseTest : MonoBehaviour
 {
     public GameObject target;
     public Button moveButton;
-    public float scaleSize;
-    public int duration = 2;
-    
+    public Mytween.EaseType easeType;
     void Start()
     {
         target = GameObject.Find("Target");
@@ -19,7 +17,7 @@ public class DoScaleTest : MonoBehaviour
     
     void OnMoveButtonClick()
     {
-        Vector3 endScale = target.transform.localScale*scaleSize;
-        target.transform.DoScale(endScale, duration);
+        Tweenr tween = Mytween.GetTweenrById(Mytween.DOSCALE_ID); 
+        tween.SetEase(easeType);
     }
 }

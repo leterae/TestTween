@@ -9,6 +9,17 @@ public static class Mytween
     public static string DOMOVE_ID = "DoMove";
     public static string DOSCALE_ID = "DoScale";
     
+    public enum EaseType
+    {
+        Linear,
+        EaseInSine,
+        EaseOutSine,
+        EaseInOutSine,
+        EaseInBack,
+        EaseOutBack,
+        EaseInOutBack
+    }
+    
     // 创建一个GameObject放TweenRunner.
     static private GameObject core;
     // static private Tweenr _runner;
@@ -24,6 +35,8 @@ public static class Mytween
 
     public static Tweenr GetTweenrById(string id)
     {
+        CheckCore();
+        CheckTweener(id);
         runningCoroutines.TryGetValue(id, out Tweenr tweenr);
         return tweenr;
     }
@@ -75,8 +88,8 @@ public static class Mytween
                 tweenr.isComplete = false;
                 yield break;
             }
-               
-            t.position = Vector3.Lerp(start, target, elapsed / duration);
+            float percent = Ease(elapsed / duration, tweenr.easeType);
+            t.position = Vector3.Lerp(start, target, percent);
             elapsed += Time.deltaTime;
             yield return null;
         }
@@ -118,12 +131,42 @@ public static class Mytween
                 tweenr.isComplete = false;
                 yield break;
             }
-               
-            t.localScale = Vector3.Lerp(start, target, elapsed / duration);
+
+            float percent = Ease(elapsed / duration, tweenr.easeType);
+            t.localScale = Vector3.Lerp(start, target, percent);
             elapsed += Time.deltaTime;
             yield return null;
         }
         t.localScale = target;
     }
-    
+
+
+    private static float Ease(float t, EaseType easeType)
+    {
+        switch (easeType)
+        {
+            case EaseType.EaseInSine:
+                return 1f - Mathf.Cos((t * Mathf.PI) / 2f);
+            case EaseType.EaseOutSine:
+                return Mathf.Sin((t * Mathf.PI) / 2f);
+            case EaseType.EaseInBack:
+                float e1 = (float)1.70158;
+                float e3 = e1 + 1;
+                return e3 * t * t * t - e1 * t * t;
+            case EaseType.EaseOutBack:
+                float c1 = (float)1.70158;
+                float c3 = c1 + 1;
+                return 1 + c3 * Mathf.Pow(t - 1, 3) + c1 * Mathf.Pow(t - 1, 2);
+            case EaseType.EaseInOutBack:
+                float t1 = 1.70158f;
+                float t2 = t1 * 1.525f;
+                return t < 0.5
+                    ? (Mathf.Pow(2 * t, 2) * ((t2 + 1) * 2 * t - t2)) / 2
+                    : (Mathf.Pow(2 * t - 2, 2) * ((t2 + 1) * (t * 2 - 2) + t2) + 2) / 2;
+            case EaseType.EaseInOutSine:
+                return -(Mathf.Cos((float)Math.PI * t) - 1) / 2;
+            default:
+                return t;
+        }
+    }
 }
