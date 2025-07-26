@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class KillMoveTest : MonoBehaviour
+public class DoScaleTest : MonoBehaviour
 {
     public GameObject target;
     public Button moveButton;
-    public bool isComplete = false;
+    public float scaleSize;
+    
     void Start()
     {
         target = GameObject.Find("Target");
@@ -17,7 +18,7 @@ public class KillMoveTest : MonoBehaviour
     
     void OnMoveButtonClick()
     {
-        Tweenr tween = Mytween.GetTweenrById(Mytween.DOMOVE_ID); 
-        tween.Kill(isComplete);
+        Vector3 endScale = target.transform.localScale*scaleSize;
+        target.transform.DoScale(endScale, 2);
     }
 }

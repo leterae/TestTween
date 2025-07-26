@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class KillMoveTest : MonoBehaviour
+public class KillScaleTest : MonoBehaviour
 {
     public GameObject target;
     public Button moveButton;
@@ -17,7 +17,7 @@ public class KillMoveTest : MonoBehaviour
     
     void OnMoveButtonClick()
     {
-        Tweenr tween = Mytween.GetTweenrById(Mytween.DOMOVE_ID); 
+        Tweenr tween = Mytween.GetTweenrById(Mytween.DOSCALE_ID); 
         tween.Kill(isComplete);
     }
 }

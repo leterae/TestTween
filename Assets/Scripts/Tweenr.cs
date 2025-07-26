@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class Tweenr : MonoBehaviour
 {
+    
+    public bool isKill;
     public bool isComplete;
+    
     // 记录Tweener类型
     public string name;
     
@@ -30,5 +33,11 @@ public class Tweenr : MonoBehaviour
     public void StartRTCorouTine(IEnumerator enumerator)
     {
         RTCoroutine = StartCoroutine(enumerator);
+    }
+
+    public void Kill(bool isComplete)
+    {
+        this.isComplete = isComplete;
+        isKill = true;
     }
 }
