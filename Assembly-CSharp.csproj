@@ -45,9 +45,10 @@
     <Analyzer Include="D:\Unity\2022.3.8f1c1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\Button\KillMoveTest.cs" />
+     <Compile Include="Assets\Scripts\Tweenr.cs" />
      <Compile Include="Assets\Scripts\Mytween.cs" />
      <Compile Include="Assets\Scripts\Button\DoMoveTest.cs" />
-     <Compile Include="Assets\Scripts\Tweenr.cs" />
      <Folder Include="Assets" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
@@ -731,11 +732,14 @@
      <Reference Include="Unity.2D.Tilemap.Extras">
      <HintPath>D:\UnityProject\Beijing7_25TestProject\Library\ScriptAssemblies\Unity.2D.Tilemap.Extras.dll</HintPath>
      </Reference>
-     <Reference Include="Unity.Rider.Editor">
-     <HintPath>D:\UnityProject\Beijing7_25TestProject\Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
+     <Reference Include="UnityEngine.UI">
+     <HintPath>D:\UnityProject\Beijing7_25TestProject\Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
      </Reference>
      <Reference Include="Unity.2D.PixelPerfect.Editor">
      <HintPath>D:\UnityProject\Beijing7_25TestProject\Library\ScriptAssemblies\Unity.2D.PixelPerfect.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Rider.Editor">
+     <HintPath>D:\UnityProject\Beijing7_25TestProject\Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.2D.Aseprite.Common">
      <HintPath>D:\UnityProject\Beijing7_25TestProject\Library\ScriptAssemblies\Unity.2D.Aseprite.Common.dll</HintPath>
@@ -754,9 +758,6 @@
      </Reference>
      <Reference Include="Unity.2D.Common.Runtime">
      <HintPath>D:\UnityProject\Beijing7_25TestProject\Library\ScriptAssemblies\Unity.2D.Common.Runtime.dll</HintPath>
-     </Reference>
-     <Reference Include="UnityEngine.UI">
-     <HintPath>D:\UnityProject\Beijing7_25TestProject\Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
      </Reference>
      <Reference Include="Unity.2D.Tilemap.Extras.Editor">
      <HintPath>D:\UnityProject\Beijing7_25TestProject\Library\ScriptAssemblies\Unity.2D.Tilemap.Extras.Editor.dll</HintPath>

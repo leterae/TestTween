@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DoMoveTest : MonoBehaviour
+public class KillMoveTest : MonoBehaviour
 {
     public GameObject target;
     public Button moveButton;
-    public int moveDistance;
     
     void Start()
     {
@@ -18,7 +17,6 @@ public class DoMoveTest : MonoBehaviour
     
     void OnMoveButtonClick()
     {
-        Vector3 endPos = target.transform.position + new Vector3(moveDistance, 0, 0);
-        target.transform.DoMove(endPos, 10);
+        target.transform.Kill("DoMove");
     }
 }

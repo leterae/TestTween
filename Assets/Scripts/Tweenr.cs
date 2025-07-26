@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class Tweenr : MonoBehaviour
 {
-    
-    public 
-    
     public bool isComplete;
     // 记录Tweener类型
     public string name;
@@ -32,6 +29,6 @@ public class Tweenr : MonoBehaviour
 
     public void StartRTCorouTine(IEnumerator enumerator)
     {
-        StartCoroutine(enumerator);
+        RTCoroutine = StartCoroutine(enumerator);
     }
 }
